@@ -16994,6 +16994,9 @@ var app = (function () {
 	function oncreate() {
 		$('[data-toggle="tooltip"]').tooltip();
 	}
+	function ondestroy() {
+		$('[data-toggle="tooltip"]').tooltip('destroy');
+	}
 	function create_main_fragment(component, ctx) {
 		var div, h1, text, text_1, text_2, text_3, p, text_5, hr, text_6, p_1, text_8, p_2, text_11, div_1, text_21, div_2;
 
@@ -17081,6 +17084,8 @@ var app = (function () {
 		init(this, options);
 		this._state = assign({}, options.data);
 		if (!('name' in this._state)) console.warn("<App> was created without expected data property 'name'");
+
+		this._handlers.destroy = [ondestroy];
 
 		if (!options.root) {
 			this._oncreate = [];
