@@ -3,6 +3,8 @@ import jquery from 'jquery';
 window.$ = jquery;
 window.jQuery = jquery;
 import 'bootstrap';
+import "bootstrap/scss/bootstrap.scss";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 import App from './App.html';
 

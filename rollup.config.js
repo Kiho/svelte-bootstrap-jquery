@@ -3,6 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import buble from 'rollup-plugin-buble';
 import uglify from 'rollup-plugin-uglify';
+import scss from 'rollup-plugin-scss';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -20,10 +21,11 @@ export default {
 			dev: !production,
 			// we'll extract any component CSS out into
 			// a separate file  better for performance
-			css: css => {
-				css.write('public/bundle.css');
-			}
+			// css: css => {
+			// 	css.write('public/bundle.css');
+			// }
 		}),
+		scss({output: 'public/bundle.css'}),
 
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
